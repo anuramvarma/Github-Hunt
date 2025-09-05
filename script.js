@@ -318,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  
   // Add loading state to search button
   const searchBtn = document.getElementById('searchBtn');
   const originalSearchHandler = searchBtn.onclick;
