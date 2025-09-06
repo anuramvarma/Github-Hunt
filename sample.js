@@ -2,6 +2,7 @@ const searchBtn = document.getElementById("searchBtn");
 const profileDiv = document.getElementById("profile");
 const reposDiv = document.getElementById("repos");
 
+
 searchBtn.addEventListener("click", () => {
   const username = document.getElementById("username").value.trim();
   if(username) {
@@ -31,27 +32,34 @@ async function fetchGitHubUser(username) {
     const repos = await reposRes.json();
 
     // Display profile
-    profileDiv.innerHTML = `
-      <div class="profile-card">
-        <img src="${user.avatar_url}" alt="${user.login}">
-        <div class="profile-info">
-          <div class="badges">
-            <span class="badge repos-badge">Public Repos: ${user.public_repos}</span>
-            <span class="badge gists-badge">Public Gists: ${user.public_gists}</span>
-            <span class="badge followers-badge">Followers: ${user.followers}</span>
-            <span class="badge following-badge">Following: ${user.following}</span>
-          </div>
-          <p>Company: ${user.company || 'N/A'}</p>
-          <p>Website/Blog: ${user.blog || 'N/A'}</p>
-          <p>Location: ${user.location || 'N/A'}</p>
-          <p>Member Since: ${new Date(user.created_at).toLocaleDateString()}</p>
-          <a href="${user.html_url}" target="_blank" class="view-profile-btn">View Profile</a>
-        </div>
+ // Display profile
+profileDiv.innerHTML = `
+  <div class="profile-card">
+    <img src="${user.avatar_url}" alt="${user.login}">
+    <div class="profile-info">
+      <h2>${user.name || user.login}</h2>
+      <p>${user.bio || "No bio available"}</p>
+      <div class="badges">
+        <span class="badge repos-badge">Public Repos: ${user.public_repos}</span>
+        <span class="badge gists-badge">Public Gists: ${user.public_gists}</span>
+        <span class="badge followers-badge">Followers: ${user.followers}</span>
+        <span class="badge following-badge">Following: ${user.following}</span>
       </div>
-    `;
+      <p>Company: ${user.company || 'N/A'}</p>
+      <p>Website/Blog: ${user.blog ? `<a href="${user.blog}" target="_blank">${user.blog}</a>` : 'N/A'}</p>
+      <p>Location: ${user.location || 'N/A'}</p>
+      <p>Member Since: ${new Date(user.created_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}</p>
+      <a href="${user.html_url}" target="_blank" class="view-profile-btn">View Profile</a>
+    </div>
+  </div>
+`;
 
     // Display repos
-    reposDiv.innerHTML = `<h3>Latest Repos</h3>`;
+    reposDiv.innerHTML = `<h3>Latest Repositories</h3>`;
     repos.forEach(repo => {
       reposDiv.innerHTML += `
         <div class="repo-item">
