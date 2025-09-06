@@ -2,7 +2,7 @@
 
 A simple and elegant **GitHub User Hunt App** that lets you search for any GitHub user and view their profile details, repositories, followers, and following.  
 
-![GitHub Hunt Preview](./preview.png) <!-- Replace with your screenshot -->
+![GitHub Hunt Preview](./screenshots/preview.png) <!-- Replace with your screenshot -->
 
 ---
 
