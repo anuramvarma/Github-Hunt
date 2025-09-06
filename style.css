@@ -113,6 +113,31 @@ body {
 .nav-brand i {
   font-size: 2rem;
 }
+.welcome-banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 0;
+  border-radius: 6px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; /* Start off screen */
+  animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 
 .theme-toggle {
   background: var(--bg-tertiary);
