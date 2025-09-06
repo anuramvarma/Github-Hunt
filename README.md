@@ -51,3 +51,7 @@ A simple and elegant **GitHub User Hunt App** that lets you search for any GitHu
 **🌙 Dark/Light mode toggle.**
 
 **📱 Improve mobile responsiveness with better UI/UX**
+
+## 🧑‍💻 Author
+
+**Your Name – @ Anuram Varma**
