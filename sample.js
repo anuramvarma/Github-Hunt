@@ -28,7 +28,7 @@ async function fetchGitHubUser(username) {
     const user = await userRes.json();
 
     // Latest repos
-    const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=created&per_page=5`);
+    const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=created&per_page=25`);
     const repos = await reposRes.json();
 
     // Display profile
